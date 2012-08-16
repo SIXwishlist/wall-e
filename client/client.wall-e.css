@@ -24,11 +24,6 @@
     opacity: 0.75;
 }
 
-.popup_important {
-    background-color: #b00;
-}
-
-
 .wall_popup .title {
     margin:0;
     padding-right:30px;
@@ -91,4 +86,8 @@
 
 .wall_history .item .title {
     font-size: 15px;
+}
+
+.wall_popup.important, .wall_history .item.important {
+    background-color: #b00;
 }

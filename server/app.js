@@ -13,6 +13,9 @@ var c = require('./requirements/constants.js');
  * Basic modules initialisations
  */
 var app = express();
+app.use(express.bodyParser());
+app.use(express.methodOverride());
+
 var io = socket_io.listen(c.SOCKET_PORT);
 
 /**
@@ -43,6 +46,14 @@ function check_ip_write_auth(req, res, next){
 function push_to_clients(req, res, category, datas){
 
     var clients = c.clients[category];
+
+    /**
+     * Assert minimum message header
+     */
+    if (typeof(datas.title) == 'undefined' || typeof(datas.message) == 'undefined'){
+        res.send(500, "You must specify a title and a message");
+        return null;
+    }
 
     if (typeof(clients) != 'undefined'){
         for (var key in clients){
@@ -147,9 +158,6 @@ app.del('*', utils.e404);
 /**
  * Starting express web server with correct modules.
  */
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-
 app.listen(c.LISTEN_PORT);
 
 /**
