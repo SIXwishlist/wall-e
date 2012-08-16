@@ -6,15 +6,6 @@
  *     http://jquery.com/
  */
 
-var wall_server_address = "http://localhost:9999";
-var wall_loaded = false;
-var wall_cnotif = 0;
-
-$.getScript(wall_server_address + "/socket.io/socket.io.js", function(){
-    wall_loaded = true;
-    wall_socket = io.connect(wall_server_address);
-});
-
 /**
  * Create basic layout for message display
  *
@@ -58,10 +49,26 @@ function create_pop_up_base(){
  *
  * @param  {Array} categories  array of registering wall categories
  */
-function listen_to_walls(categories){
+function listen_to_walls(address, categories){
+
+    if (address.substr(-1) != '/'){
+        address += '/';
+    }
+
+    var wall_loaded = false;
+    var wall_socket = null;
 
     /**
-     * Check if need socket connected,
+     * Fetch needed javascript from server
+     * and connect
+     */
+    $.getScript(address + "socket.io/socket.io.js", function(){
+        wall_loaded = true;
+        wall_socket = io.connect(address);
+    });
+
+    /**
+     * Check if need socket ready,
      * then register all categories to server.
      * If still not connected, wait.
      */
@@ -71,8 +78,6 @@ function listen_to_walls(categories){
             return null;
         }
 
-        create_pop_up_base();
-
         if (typeof(categories.length) == 'undefined'){
             wall_socket.emit('registering', categories);
         } else {
@@ -80,6 +85,8 @@ function listen_to_walls(categories){
                 wall_socket.emit('registering', categories[key]);
             }
         }
+
+        create_pop_up_base();
 
         /**
          * On server pushing, display the alert
@@ -146,8 +153,8 @@ function listen_to_walls(categories){
             );
         });
 
-        clearInterval(__connection_interval);
+        clearInterval(connection_interval);
     }
 
-    __connection_interval = setInterval(try_register, 1000);
+    var connection_interval = setInterval(try_register, 1000);
 }

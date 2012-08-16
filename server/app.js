@@ -17,6 +17,7 @@ app.use(express.bodyParser());
 app.use(express.methodOverride());
 
 var io = socket_io.listen(c.SOCKET_PORT);
+io.set('log level', 1); // no debug mode
 
 /**
  * Ip authorization middlewares

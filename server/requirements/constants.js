@@ -25,7 +25,7 @@ exports.allowed_methods = [
  * pushed to clients
  */
 exports.default_data = {
-    'timeout': 20000, // ms
+    'timeout': 20000, // time for visible popup (ms)
     'popup_class': 'normal', // affect the popup css
 };
 
