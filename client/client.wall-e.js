@@ -47,7 +47,8 @@ function create_pop_up_base(){
 /**
  * Register this client to remote wall server
  *
- * @param  {Array} categories  array of registering wall categories
+ * @param  {String} address     server address
+ * @param  {Array}  categories  array of listened wall categories
  */
 function listen_to_walls(address, categories){
 
@@ -92,7 +93,7 @@ function listen_to_walls(address, categories){
          * On server pushing, display the alert
          * @param  {Object} datas pushed datas
          */
-        wall_socket.on ('pushed', function(datas){
+        wall_socket.on('pushed', function(datas){
 
             /**
              * Update a new big popup
@@ -151,6 +152,13 @@ function listen_to_walls(address, categories){
                     )
                     .addClass(datas.popup_class)
             );
+        });
+
+        /**
+         * On heart beat, just answer regular response
+         */
+        wall_socket.on('ping', function(datas){
+            wall_socket.emit('pong', {});
         });
 
         clearInterval(connection_interval);

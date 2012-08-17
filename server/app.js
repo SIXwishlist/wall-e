@@ -162,8 +162,22 @@ app.del('*', utils.e404);
 app.listen(c.LISTEN_PORT);
 
 /**
- * Logging utility
+ * Logging utility, also force socket heartbeat
+ * to avoid socket automatic timeout
  */
+function heartbeat_clients(categories){
+
+    for (var key in categories){
+
+        var clients = categories[key];
+
+        for (var idx in clients){
+            clients[idx].emit('ping', {});
+        }
+    }
+}
+
 setInterval(function(){
     console.log("[" + new Date() + "] " + c.client_count + " client(s) listening.");
-}, 10000);
+    heartbeat_clients(c.clients);
+}, 20000);

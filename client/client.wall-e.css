@@ -1,3 +1,6 @@
+/**
+ * Basic theme properties
+ */
 .wall_popup, .wall_toggle, .wall_history {
     color: #fff;
     box-shadow: 1px 1px 10px #666;
@@ -7,6 +10,10 @@
     margin:0;
 }
 
+
+/**
+ * Popup zone properties
+ */
 .wall_popup_zone {
     margin:0;
     position: fixed;
@@ -14,6 +21,10 @@
     right: 50px;
 }
 
+
+/**
+ * Popup style
+ */
 .wall_popup {
     border-radius: 10px;
     border: 3px solid #fff;
@@ -23,16 +34,13 @@
     padding: 15px;
     opacity: 0.75;
 }
-
 .wall_popup .title {
     margin:0;
     padding-right:30px;
 }
-
 .wall_popup .body {
     margin:5px;
 }
-
 .wall_popup .close {
     cursor:pointer;
     float:right;
@@ -41,11 +49,14 @@
     opacity: 1;
     padding:0px 10px 0px 10px;
 }
-
 .wall_popup .close:hover {
     background-color: #999;
 }
 
+
+/**
+ * History display button
+ */
 .wall_toggle {
     cursor:pointer;
     position: fixed;
@@ -57,6 +68,10 @@
     opacity: 0.75;
 }
 
+
+/**
+ * History window properties
+ */
 .wall_history {
     overflow: auto;
     position: fixed;
@@ -70,12 +85,10 @@
     min-width:200px;
     opacity: 0.7;
 }
-
 .wall_history .no_results {
     margin-top: 100px;
     text-align: center;
 }
-
 .wall_history .item {
     padding:5px;
     padding-left:15px;
@@ -83,11 +96,14 @@
     margin: 15px;
     border-bottom: 1px dotted #fff;
 }
-
 .wall_history .item .title {
     font-size: 15px;
 }
 
+
+/**
+ * if pushed popup_class is 'important'.
+ */
 .wall_popup.important, .wall_history .item.important {
     background-color: #b00;
 }
