@@ -96,7 +96,7 @@ with following arguments: (from an allowed ip address, *see Configuration*)
     - (optional) popup_class : css class appended to the popup container (use this for customization)
 
 
-*GET method examples (assuming SOCKET_PORT=9999)*::
+*GET method examples (assuming LISTEN_PORT=9999)*::
 
     http://my_server.org:9999/home/push?title=Hello&message=World&timeout=10000
     // will broadcast 'Hello'(title) and 'world'(message) to all clients listening to 'home'
