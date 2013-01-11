@@ -26,7 +26,7 @@ exports.allowed_methods = [
  */
 exports.default_data = {
     'timeout': 20000, // time for visible popup (ms)
-    'popup_class': 'normal', // affect the popup css
+    'popup_class': 'normal' // affect the popup css
 };
 
 /**
@@ -37,10 +37,10 @@ exports.default_data = {
  */
 exports.IP_WHITE_LIST = {
     read: [
-        '127.0.0.1',
+        '127.0.0.1'
     ],
     write: [
-        '127.0.0.1',
+        '127.0.0.1'
     ],
 }
 
