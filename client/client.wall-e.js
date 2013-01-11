@@ -126,6 +126,7 @@ function listen_to_walls(address, categories){
             // Fade animation, remove when finished
             wall_popup.fadeIn(500);
             setTimeout(function(){
+                wall_popup.slideUp(1000);
                 wall_popup.fadeOut(2000);
                 setTimeout(function(){
                     wall_popup.remove();
