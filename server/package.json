@@ -1,0 +1,35 @@
+{
+  "name": "wall-e",
+  "version": "0.0.2",
+  "description": "Wall clients fetching notifications from a NodeJS server. Used for monitoring purposes at Online.net",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/online-net/wall-e.git"
+  },
+  "keywords": [
+    "online.net",
+    "iliad",
+    "online",
+    "monitor",
+    "notifications",
+    "datacenter"
+  ],
+  "dependencies": {
+    "socket.io": "0.9.x",
+    "express":   "3.0.x",
+    "extend":    "1.1.x"
+  },
+  "author": "Manfred Touron <mtouron@online.net>",
+  "contributors": [
+    {
+      "name":  "Vincent Brunet",
+      "email": "vbrunet@online.net",
+      "web":   "https://github.com/wCrappy"
+    }
+  ],
+  "license": "MIT"
+}
