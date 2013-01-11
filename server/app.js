@@ -24,7 +24,7 @@
 
   io = socket_io.listen(c.SOCKET_PORT || server);
 
-  io.set('log level', 10);
+  io.set('log level', 1);
 
   check_ip_read_auth = function(ip) {
     return utils.is_in_array(ip, c.IP_WHITE_LIST.read);
@@ -112,13 +112,9 @@
     }
   });
 
-  app.get('*', utils.e404);
+  app.use('/client/', express["static"]("" + __dirname + "/../client/"));
 
-  app.post('*', utils.e404);
-
-  app.put('*', utils.e404);
-
-  app.del('*', utils.e404);
+  app.use(utils.e404);
 
   server.listen(c.LISTEN_PORT);
 
@@ -142,7 +138,7 @@
   };
 
   setInterval((function() {
-    console.log("[" + (new Date()) + "] " + c.client_count + "# client(s) listening.");
+    console.log("[" + (new Date()) + "] " + c.client_count + " client(s) listening.");
     return heartbeat_clients(c.clients);
   }), 20000);
 

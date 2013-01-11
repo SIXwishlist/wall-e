@@ -52,7 +52,7 @@ function create_pop_up_base(){
  */
 function listen_to_walls(address, categories){
 
-    if (address.substr(-1) != '/'){
+    if (address && address.substr(-1) != '/'){
         address += '/';
     }
 
@@ -63,7 +63,7 @@ function listen_to_walls(address, categories){
      * Fetch needed javascript from server
      * and connect
      */
-    $.getScript(address + "socket.io/socket.io.js", function(){
+    $.getScript((address ? address : '') + "/socket.io/socket.io.js", function(){
         wall_loaded = true;
         wall_socket = io.connect(address);
     });

@@ -19,9 +19,10 @@
     "datacenter"
   ],
   "dependencies": {
-    "socket.io": "0.9.x",
-    "express":   "3.0.x",
-    "extend":    "1.1.x"
+    "socket.io":   "0.9.x",
+    "express":     "3.0.x",
+    "extend":      "1.1.x",
+    "node-static": "0.6.x"
   },
   "author": "Manfred Touron <mtouron@online.net>",
   "contributors": [

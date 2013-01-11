@@ -14,7 +14,7 @@ app.use express.methodOverride()
 server = http.createServer app
 
 io = socket_io.listen c.SOCKET_PORT || server
-io.set 'log level', 10
+io.set 'log level', 1
 
 # Ip authorization middlewares
 check_ip_read_auth = (ip) ->
@@ -88,11 +88,11 @@ io.sockets.on 'connection', (socket) ->
   else
     console.log "> Denied connection from #{client_ip}"
 
+# static content
+app.use '/client/', express.static "#{__dirname}/../client/"
+
 # If no route found, just return 404
-app.get  '*', utils.e404
-app.post '*', utils.e404
-app.put  '*', utils.e404
-app.del  '*', utils.e404
+app.use utils.e404
 
 # Starting express web server with correct modules.
 server.listen c.LISTEN_PORT
@@ -106,6 +106,6 @@ heartbeat_clients = (categories) ->
       clients[idx].emit 'ping', {}
 
 setInterval (->
-  console.log("[#{new Date()}] #{c.client_count}# client(s) listening.")
+  console.log("[#{new Date()}] #{c.client_count} client(s) listening.")
   heartbeat_clients c.clients
 ), 20000
