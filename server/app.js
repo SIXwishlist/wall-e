@@ -63,7 +63,7 @@ function push_to_clients(req, res, category, datas){
     }
 
     res.send(200, "Pushed!");
-}
+};
 
 /**
  * add GET method standard handler

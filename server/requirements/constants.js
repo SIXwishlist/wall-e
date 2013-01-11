@@ -17,7 +17,7 @@ exports.SOCKET_PORT = 9999;
  */
 exports.allowed_methods = [
     'get',
-    'post',
+    'post'
 ];
 
 /**
@@ -41,6 +41,6 @@ exports.IP_WHITE_LIST = {
     ],
     write: [
         '127.0.0.1'
-    ],
-}
+    ]
+};
 
