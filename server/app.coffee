@@ -3,6 +3,7 @@
 socket_io = require 'socket.io'
 express =   require 'express'
 extend =    require 'extend'
+http =      require 'http'
 utils =     require './requirements/utils'
 c =         require './requirements/constants'
 
@@ -10,9 +11,10 @@ c =         require './requirements/constants'
 app = do express
 app.use express.bodyParser()
 app.use express.methodOverride()
+server = http.createServer app
 
-io = socket_io.listen c.SOCKET_PORT
-io.set 'log level', 1
+io = socket_io.listen c.SOCKET_PORT || server
+io.set 'log level', 10
 
 # Ip authorization middlewares
 check_ip_read_auth = (ip) ->
@@ -93,7 +95,7 @@ app.put  '*', utils.e404
 app.del  '*', utils.e404
 
 # Starting express web server with correct modules.
-app.listen c.LISTEN_PORT
+server.listen c.LISTEN_PORT
 
 # Logging utility, also force socket heartbeat
 # to avoid socket automatic timeout

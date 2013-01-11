@@ -10,7 +10,7 @@ exports.client_count = 0;
  * Basic constants
  */
 exports.LISTEN_PORT = 5555;
-exports.SOCKET_PORT = 9999;
+exports.SOCKET_PORT = false;
 
 /**
  * Array of allowed writing methods
