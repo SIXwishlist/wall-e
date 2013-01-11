@@ -1,8 +1,10 @@
-.wall_popup{color:#fff;box-shadow:1px 1px 10px #666;text-shadow:1px 1px 3px #666;background-color:#000;font-family:Arial;margin:0}
 .wall_popup_zone{margin:0}
-.wall_popup{border:3px solid #fff;margin-bottom:10px;padding:10px}
+.wall_popup{color:#fff;box-shadow:1px 1px 10px #666;text-shadow:1px 1px 3px #666;background-color:#000;font-family:Arial;margin:0 0 10px;border-radius:3px;padding:5px 5px 3px;}
 .wall_popup .title{margin:0;padding-right:30px}
 .wall_popup .body{margin:5px}
 .wall_popup .close{display:none}
-.wall_popup.important,.item.important{background-color:#b00}
+.wall_popup.important{background-color:#b00}
+.wall_popup.warning{background-color:#bb0}
+.wall_popup.success{background-color:#0b0}
+.wall_popup.info{background-color:#00b}
 .wall_toggle,.wall_history{display:none;color:transparent}
