@@ -97,6 +97,16 @@ app.use utils.e404
 # Starting express web server with correct modules.
 server.listen c.LISTEN_PORT
 
+console.log "-------"
+console.log "HTTP server is listening on port #{c.LISTEN_PORT}"
+if c.SOCKET_PORT
+  console.log "IO server is listening on port #{c.SOCKET_PORT}"
+console.log "Some links :"
+console.log "- http://localhost:#{c.LISTEN_PORT}/client/screen.html"
+console.log "- http://localhost:#{c.LISTEN_PORT}/home/push?title=Hello&message=World&timeout=2000&popup_class=warning"
+console.log "- http://localhost:#{c.LISTEN_PORT}/noc/push?title=Hello&message=World&timeout=2000&popup_class=important"
+console.log "-------"
+
 # Logging utility, also force socket heartbeat
 # to avoid socket automatic timeout
 heartbeat_clients = (categories) ->
