@@ -120,6 +120,7 @@ function listen_to_walls(address, categories){
                 )
                 .addClass('wall_popup')
                 .addClass(datas.popup_class);
+            $('.sound.' + datas.popup_class).each(function() { this.play(); });
 
             $('.wall_popup_zone').prepend(wall_popup);
 
