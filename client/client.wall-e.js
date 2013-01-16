@@ -63,7 +63,7 @@ function listen_to_walls(address, categories){
      * Fetch needed javascript from server
      * and connect
      */
-    $.getScript((address ? address : '') + "/socket.io/socket.io.js", function(){
+    $.getScript((address ? address : '') + "socket.io/socket.io.js", function(){
         wall_loaded = true;
         wall_socket = io.connect(address);
     });
